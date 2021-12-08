@@ -247,7 +247,7 @@ public class CivitasJuego {
         Jugador jugadorActual = getJugadorActual();
         int numCasillaActual = jugadorActual.getCasillaActual();
         Casilla casilla = tablero.getCasilla(numCasillaActual);
-        res = jugadorActual.comprar(casilla);
+        res = jugadorActual.comprar((CasillaCalle) casilla);
         
         return res;
         

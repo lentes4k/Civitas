@@ -39,7 +39,7 @@ public class CasillaCalle extends Casilla {
     //metodos get
     //no habra un getNombre ya que esta en casilla padre
     
-    float getPrecioCompra() {
+    public float getPrecioCompra() {
 
         return precioCompra;
 
@@ -51,19 +51,25 @@ public class CasillaCalle extends Casilla {
 
     }
 
-    int getNumCasas() {
+    public int getNumCasas() {
 
         return (numCasas);
 
     }
 
-    int getNumHoteles() {
+    public int getNumHoteles() {
 
         return (numHoteles);
 
     }
     
-    String getPropietarioInfo() {
+    public Jugador getPropietario() {
+        
+        return propietario;
+        
+    }
+    
+    public String getPropietarioInfo() {
         
         return propietario.toString();
         
@@ -136,11 +142,11 @@ public class CasillaCalle extends Casilla {
         
        if (tienePropietario() && !esEsteElPropietario(jugador)) {
            
-           jugador.pagaAlquiler(this.getPrecioAlquilerCompleto());
-           if (jugador instanceof JugadorEspeculador)
-                propietario.recibe(this.getPrecioAlquilerCompleto()/((JugadorEspeculador) jugador).getFactorEspeculador());
-           else
-               propietario.recibe(this.getPrecioAlquilerCompleto());
+           float precio;
+           
+           precio = jugador.pagaAlquiler(this.getPrecioAlquilerCompleto());
+           
+           propietario.recibe(precio);
            
        }
         

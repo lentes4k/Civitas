@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Jugador implements Comparable<Jugador> {
     
     private String nombre;
-    private ArrayList<Casilla> propiedades;
+    private ArrayList<CasillaCalle> propiedades;
     private int casillaActual;
     private float saldo;
     private boolean puedeComprar;
@@ -29,7 +29,7 @@ public class Jugador implements Comparable<Jugador> {
     Jugador (String nombre) {
         
         this.nombre = nombre;
-        propiedades = new ArrayList<Casilla>();
+        propiedades = new ArrayList<CasillaCalle>();
         casillaActual = 0; //la de salida
         saldo = SaldoInicial;
         puedeComprar = true;
@@ -47,19 +47,19 @@ public class Jugador implements Comparable<Jugador> {
     }
     
     //método get
-    protected String getNombre() {
+    public String getNombre() {
         
         return nombre;
         
     }
     
-    protected ArrayList<Casilla> getPropiedades () {
+    protected ArrayList<CasillaCalle> getPropiedades () {
         
         return propiedades;
         
     }
     
-    public ArrayList<Casilla> getPropiedadesPub() {
+    public ArrayList<CasillaCalle> getPropiedadesPub() {
         
        return getPropiedades(); 
         
@@ -71,7 +71,7 @@ public class Jugador implements Comparable<Jugador> {
         
     }
     
-    protected float getSaldo() {
+    public float getSaldo() {
         
         return saldo;
         
@@ -107,6 +107,7 @@ public class Jugador implements Comparable<Jugador> {
         
     }
     
+    
     //RESTO DE MÉTODOS
     
     //comprueba el índice como índice válido en el vector
@@ -134,14 +135,16 @@ public class Jugador implements Comparable<Jugador> {
     }
     
     //método para pagar
-    boolean paga (float cantidad) {
+    float paga (float cantidad) {
         
-        return modificaSaldo(cantidad* -1);
+        modificaSaldo(cantidad* -1);
+        
+        return cantidad;
         
     }
     
     //método para pagar el alquiler
-    boolean pagaAlquiler (float cantidad) {
+    float pagaAlquiler (float cantidad) {
         
         return paga(cantidad);
         
@@ -237,8 +240,8 @@ public class Jugador implements Comparable<Jugador> {
     int cantidadCasasHoteles() {
         
         int cantidad = 0;
-        for(Casilla propiedad : propiedades){
-            cantidad += ((CasillaCalle)propiedad).cantidadCasasHoteles();
+        for(CasillaCalle propiedad : propiedades){
+            cantidad += propiedad.cantidadCasasHoteles();
         }
         
         return cantidad;
@@ -259,17 +262,17 @@ public class Jugador implements Comparable<Jugador> {
     }
     
     //COmprueba si se puede eficiar una casa
-    private boolean puedoEdificarCasa (Casilla propiedad) {
+    private boolean puedoEdificarCasa (CasillaCalle propiedad) {
         
         //habra que comprobar si la propiedad es suya???
         
         boolean puedoEdificar = false;
         
-        float precio = ((CasillaCalle) propiedad).getPrecioEdificar();
+        float precio = propiedad.getPrecioEdificar();
         
         if (puedoGastar(precio)) {
             
-            if (((CasillaCalle) propiedad).getNumCasas() < getCasasMax())
+            if (propiedad.getNumCasas() < getCasasMax())
                 puedoEdificar = true;
             
         } //puedoGastar
@@ -279,16 +282,16 @@ public class Jugador implements Comparable<Jugador> {
     }
     
     //comprueba si se puede edificar un hotelS
-    private boolean puedoEdificarHotel (Casilla propiedad) {
+    private boolean puedoEdificarHotel (CasillaCalle propiedad) {
         
         boolean puedoEdificarHotel = false;
-        float precio = ((CasillaCalle) propiedad).getPrecioEdificar();
+        float precio = propiedad.getPrecioEdificar();
         
         if (puedoGastar(precio)) {
                 
-            if (((CasillaCalle) propiedad).getNumHoteles() < getHotelesMax()) {
+            if (propiedad.getNumHoteles() < getHotelesMax()) {
                     
-                if (((CasillaCalle) propiedad).getNumCasas() >= getCasasPorHotel()) {
+                if (propiedad.getNumCasas() >= getCasasPorHotel()) {
                     
                     puedoEdificarHotel = true;
                     
@@ -321,17 +324,17 @@ public class Jugador implements Comparable<Jugador> {
     }
     
     //MÉTODOS QUE SE HARAN MÁS ADELANTE
-    boolean comprar (Casilla titulo) {
+    boolean comprar (CasillaCalle titulo) {
         
         boolean result = false;
         
         if (puedeComprar) {
             
-            float precio = ((CasillaCalle) titulo).getPrecioCompra();
+            float precio = titulo.getPrecioCompra();
             
             if (puedoGastar(precio)) {
                 
-                result = ((CasillaCalle) titulo).comprar(this);
+                result = titulo.comprar(this);
                 propiedades.add(titulo);
                 Diario.getInstance().ocurreEvento("El jugador " + nombre + " compra la propiedad " + titulo.toString());
                 puedeComprar = false;
@@ -352,13 +355,13 @@ public class Jugador implements Comparable<Jugador> {
         
         if(existeLaPropiedad(ip)) {
             
-            Casilla propiedad = propiedades.get(ip);
+            CasillaCalle propiedad = propiedades.get(ip);
             boolean puedoEdificarHotel = puedoEdificarHotel(propiedad);
             
             if (puedoEdificarHotel) {
                 
-                result = ((CasillaCalle) propiedad).construirHotel(this);
-                ((CasillaCalle) propiedad).derruirCasas(CasasPorHotel, this);
+                result = propiedad.construirHotel(this);
+                propiedad.derruirCasas(CasasPorHotel, this);
                 Diario.getInstance().ocurreEvento("El jugador " + nombre + " construye hotel en la propiedad " + ip);
                 
             } //puedoEdificar
@@ -376,12 +379,12 @@ public class Jugador implements Comparable<Jugador> {
         
         if (existe) {
             
-            Casilla propiedad = propiedades.get(ip);
+            CasillaCalle propiedad = propiedades.get(ip);
             boolean puedoEdificar = puedoEdificarCasa(propiedad);
             
             if (puedoEdificar) {
                 
-                result = ((CasillaCalle) propiedad).construirCasa(this);
+                result = propiedad.construirCasa(this);
                 Diario.getInstance().ocurreEvento("El jugador " + nombre + " construye casa en la propiedad " + ip);
                 
             } //puedoEdificar

@@ -7,8 +7,9 @@ package controladorCivitas;
 
 import civitas.CivitasJuego;
 import civitas.OperacionJuego;
-import vistaTextualCivitas.Vista;
-import vistaTextualCivitas.VistaTextual;
+//import vistaTextualCivitas.Vista;
+//import vistaTextualCivitas.VistaTextual;
+import GUI.Vista;
 import civitas.OperacionInmobiliaria;
 import civitas.GestionInmobiliaria;
 
@@ -19,9 +20,9 @@ import civitas.GestionInmobiliaria;
 public class Controlador {
     
     private CivitasJuego juego;
-    private VistaTextual vista;
+    private Vista vista;
     
-    public Controlador (CivitasJuego juego, VistaTextual vista) {
+    public Controlador (CivitasJuego juego,  Vista vista) {
         
         this.juego = juego;
         this.vista = vista;
@@ -32,7 +33,7 @@ public class Controlador {
         
         while (!juego.finalDelJuego()) {
             
-            vista.mostrarEstado();
+            vista.actualiza();
             vista.pausa();
             OperacionJuego operacion = juego.siguientePaso();
             vista.mostrarSiguienteOperacion(operacion);

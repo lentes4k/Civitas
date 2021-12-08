@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <NonVisualComponents>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+    </Container>
+  </NonVisualComponents>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="tituloNombre" min="-2" max="-2" attributes="0"/>
+                  <Component id="tituloSaldo" min="-2" max="-2" attributes="0"/>
+                  <Component id="tituloTipo" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="campoTipo" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="campoNombre" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="campoSaldo" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+              <Component id="propiedadesPanel" pref="307" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="tituloNombre" min="-2" max="-2" attributes="0"/>
+                          <Component id="campoNombre" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="tituloSaldo" min="-2" max="-2" attributes="0"/>
+                          <Component id="campoSaldo" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="tituloTipo" min="-2" max="-2" attributes="0"/>
+                          <Component id="campoTipo" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="propiedadesPanel" min="-2" pref="390" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="38" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="tituloNombre">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nombre"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="tituloSaldo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Saldo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="tituloTipo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tipo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="campoNombre">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="text" type="java.lang.String" value="jTextField1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="campoSaldo">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="text" type="java.lang.String" value="jTextField2"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="campoTipo">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="text" type="java.lang.String" value="jTextField3"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JPanel" name="propiedadesPanel">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+    </Container>
+  </SubComponents>
+</Form>

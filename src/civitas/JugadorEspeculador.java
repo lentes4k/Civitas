@@ -63,9 +63,11 @@ public class JugadorEspeculador extends Jugador {
     }
     
     @Override
-    boolean paga (float cantidad) {
+    float paga (float cantidad) {
         
-        return modificaSaldo((cantidad* -1)/FactorEspeculador);
+        modificaSaldo((cantidad* -1)/FactorEspeculador);
+        
+        return cantidad/FactorEspeculador;
         
     }
     
