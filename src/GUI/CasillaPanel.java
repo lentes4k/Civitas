@@ -33,7 +33,7 @@ public class CasillaPanel extends javax.swing.JPanel {
         textoNombre.setText(this.casilla.getNombrePub());
         textoCompra.setText(Float.toString(((CasillaCalle) this.casilla).getPrecioCompra()));
         if (((CasillaCalle) this.casilla).getPropietario() != null)
-            textoPropietario.setText(((CasillaCalle) this.casilla).getPropietarioInfo());
+            textoPropietario.setText(((CasillaCalle) this.casilla).getPropietario().getNombre());
         else
             textoPropietario.setText("NO tiene");
         

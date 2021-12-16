@@ -40,6 +40,7 @@ public class CasillaSorpresa extends Casilla{
         
         Sorpresa sorpresa = mazo.siguiente();
         this.informe(actual, todos);
+        Diario.getInstance().ocurreEvento(sorpresa.toString());
         sorpresa.aplicarAJugador(actual, todos);
         
     }
