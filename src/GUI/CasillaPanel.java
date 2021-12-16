@@ -80,16 +80,26 @@ public class CasillaPanel extends javax.swing.JPanel {
         propietario.setText("Propietario");
 
         textoTipo.setEditable(false);
-        textoTipo.setText("jTextField1");
+        textoTipo.setText("casilla");
+        textoTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textoTipoActionPerformed(evt);
+            }
+        });
 
         textoNombre.setEditable(false);
-        textoNombre.setText("jTextField1");
+        textoNombre.setText("nombre");
+        textoNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textoNombreActionPerformed(evt);
+            }
+        });
 
         textoCompra.setEditable(false);
-        textoCompra.setText("jTextField1");
+        textoCompra.setText("precio");
 
         textoPropietario.setEditable(false);
-        textoPropietario.setText("jTextField1");
+        textoPropietario.setText("propietario");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -104,7 +114,7 @@ public class CasillaPanel extends javax.swing.JPanel {
                         .addComponent(textoPropietario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(precioCompra)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
                         .addComponent(textoCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(nombre)
@@ -138,6 +148,14 @@ public class CasillaPanel extends javax.swing.JPanel {
                 .addContainerGap(131, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void textoTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoTipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textoTipoActionPerformed
+
+    private void textoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textoNombreActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

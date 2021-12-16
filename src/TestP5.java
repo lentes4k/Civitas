@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI;
+
 
 import java.util.ArrayList;
 
 import civitas.CivitasJuego;
 import controladorCivitas.Controlador;
+import GUI.*;
 
 /**
  *
@@ -24,7 +25,7 @@ public class TestP5 {
         ArrayList<String> nombres = new ArrayList<>();
         nombres = captura.getNombres();
         
-        CivitasJuego juego = new CivitasJuego (nombres, true);
+        CivitasJuego juego = new CivitasJuego (nombres, false);
         
         Controlador controlador = new Controlador (juego, vista);
         

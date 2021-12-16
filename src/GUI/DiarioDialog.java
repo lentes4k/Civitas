@@ -30,7 +30,7 @@ public class DiarioDialog extends javax.swing.JDialog {
         
            
         eventosTexto.setText(eventos);
-        eventosTexto.setVisible(true);
+        this.setVisible(true);
         
         repaint();
         revalidate();
